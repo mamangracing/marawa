@@ -21,26 +21,26 @@
 								<div class="row">
 									<div class="col-sm-3  multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<h6>Commercial Printing</h6>
-											<li><a href="#">Majalah</a></li>
-											<li><a href="#">Box Hamper</a></li>
-											<li><a href="#">Label</a></li>
-											<li><a href="#">Brosur</a></li>
-											<li><a href="#">Packaging</a></li>
-											<li><a href="#">Buku Tahunan</a></li>
-											<li><a href="#">DLL</a></li>
+											<h6><a href="<?= base_url('commercial');?>">Commercial Printing</a></h6>
+											<li>Majalah</li>
+											<li>Box Hamper</li>
+											<li>Label</li>
+											<li>Brosur</li>
+											<li>Packaging</li>
+											<li>Buku Tahunan</li>
+											<li>DLL</li>
 										</ul>
 									</div>
 									<div class="col-sm-3  multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<h6>Printing Aplications</h6>
-											<li><a href="#">Banner</a></li>
-											<li><a href="#">Baliho</a></li>
-											<li><a href="#">Reklame</a></li>
-											<li><a href="#">Canvas</a></li>
-											<li><a href="#">Poster</a></li>
-											<li><a href="#">Neon Box</a></li>
-											<li><a href="#">DLL</a></li>
+											<h6><a href="<?= base_url('applications');?>">Printing Aplications</a></h6>
+											<li>Banner</li>
+											<li>Baliho</li>
+											<li>Reklame</li>
+											<li>Canvas</li>
+											<li>Poster</li>
+											<li>Neon Box</li>
+											<li>DLL</li>
 										</ul>
 									</div>
 									<div class="col-sm-3  multi-gd-img">
@@ -62,15 +62,15 @@
 							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 								<div class="product-tab">
 									<?php
-									$a=5;
-									for($i=0; $i < $a; $i++){ ?>
+
+									foreach($product as $pt): ?>
 										<div class="col-md-4 product-tab-grid simpleCart_shelfItem mt-5">
 											<div class="grid-arr">
 												<div  class="grid-arrival">
 													<figure>		
 														<a href="order.html" class="new-gri">
 															<div class="grid-img">
-																<img src="<?= base_url('assets/');?>img/1.jpg" class="img-responsive" alt="">
+																<img src="<?= base_url('assets/');?>img/<?= $pt['product_img'];?>" class="img-responsive" alt="">
 															</div>		
 														</a>		
 													</figure>	
@@ -79,16 +79,14 @@
 													<div class="starbox small ghosting"> </div>
 												</div>
 												<div class="products-list">
-													<h6><a href="order.html">Desain Bok Makanan</a></h6>
+													<h6><a href="<?= base_url('order');?>"><?= $pt['product_name'];?></a></h6>
 													<span class="size">XL / XXL / S </span>
-													<p ><em class="item_price">Harga dari Rp 50.000</em></p>
-													<a href="https://api.whatsapp.com/send?phone=+6281280120231&text=Haloo Bapak / Ibu" target="blank" class="my-cart-b item_add">Pesan Sekarang</a>
+													<p ><em class="item_price"><?= $pt['price'];?></em></p>
+													<a href="https://api.whatsapp.com/send?phone=+6281280120231&text=Haloo Bapak / Ibu saya ingin memesan product <?= $pt['product_name'];?>" target="blank" class="my-cart-b item_add">Pesan Sekarang</a>
 												</div>
 											</div>
 										</div>
-										<?php
-									}
-									?>
+									<?php endforeach ?>
 									<div class="clearfix"></div>
 								</div>
 							</div>
